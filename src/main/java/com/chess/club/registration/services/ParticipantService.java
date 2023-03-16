@@ -6,12 +6,14 @@ import com.chess.club.registration.repository.ParticipantRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.Period;
+import java.time.Year;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ParticipantService {
-    //    private final DateTimeFormatter DATE_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM");
     private final ParticipantRepository participantRepository;
 
     public ParticipantService(ParticipantRepository participantRepository) {
@@ -27,9 +29,9 @@ public class ParticipantService {
                 "Simona",
                 "Danielius",
                 "Andrius",
-                "Erikaa",
+                "Erika",
                 "Mindaugas",
-                "Marius"
+                "Viktorija"
         };
         String[] surname = {
                 "Petrauskas",
@@ -41,7 +43,7 @@ public class ParticipantService {
                 "Vasiliauskas",
                 "Žemaitė",
                 "Urbonas",
-                "Navickas"
+                "Šimkūnienė"
         };
         String[] personalCode = {
                 "38201020001",
@@ -53,7 +55,7 @@ public class ParticipantService {
                 "39107140007",
                 "47708160008",
                 "37609180009",
-                "38710200010"
+                "49607080947"
         };
         String[] email = {
                 "Petrauskas@gmail.com",
@@ -65,7 +67,7 @@ public class ParticipantService {
                 "Vasiliauskas@gmail.com",
                 "Žemaitė@gmail.com",
                 "Urbonas@gmail.com",
-                "Navickas@gmail.com"
+                "viktorija@gmail.com"
         };
         String[] dateStartedPlayingChess = {
                 "2000-10-06",
@@ -74,10 +76,10 @@ public class ParticipantService {
                 "1990-03-12",
                 "1996-10-14",
                 "2003-04-16",
-                "1994-01-18",
+                "2016-01-18",
                 "1997-05-20",
                 "1995-06-22",
-                "1993-04-24"
+                "2019-05-19"
         };
 
         for (int i = 0; i < 10; i++) {
@@ -85,12 +87,11 @@ public class ParticipantService {
             participant.setName(name[i]);
             participant.setSurname(surname[i]);
             participant.setPersonalCode(personalCode[i]);
+            AdditionalInfo additionalInfo = new AdditionalInfo();
+            additionalInfo.setEmail(email[i]);
+            additionalInfo.setDateStartedPlayingChess(dateStartedPlayingChess[i]);
 
-//            AdditionalInfo additionalInfo = new AdditionalInfo();
-//            additionalInfo.setEmail(email[i]);
-//            additionalInfo.setDateStartedPlayingChess(LocalDate.parse(dateStartedPlayingChess[i]));
-//
-//            participant.setAdditionalInfo(additionalInfo);
+            participant.setAdditionalInfo(additionalInfo);
 
             this.participantRepository.saveAndFlush(participant);
         }

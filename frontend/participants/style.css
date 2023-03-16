@@ -1,0 +1,75 @@
+body{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-image: url("/ui-images/chess.jpg");
+    background-position: center top -3rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.menu {
+    height: 3rem;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    background-color: aquamarine;
+    gap: 2rem;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+a:first-child {
+    padding-left: 15rem;
+}
+
+h1 {
+    align-self: center;
+    margin-top: 35vh;
+    font-size: 3rem;
+}
+
+.wrap {
+    align-self: center;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    text-align: center;
+    font-size: 1.3rem;
+    width: max-content;
+    border: 1px solid black;
+}
+
+th {
+    padding: .5rem;
+    background-color: aqua;
+}
+
+td {
+    padding: .5rem
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+tr:nth-child(odd) {
+    background-color: #d4bebe;
+}
+
+tr:hover {
+    background-color: rgb(214, 161, 46);
+}
+
+
+
+
+
+
