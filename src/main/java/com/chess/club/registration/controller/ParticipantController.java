@@ -30,4 +30,14 @@ public class ParticipantController {
 
     @DeleteMapping("/{id}")
     public void deleteParticipantById(@PathVariable Long id) {this.participantService.deleteParticipantById(id);}
+
+    @PatchMapping("/{id}")
+    public void editParticipantById(@PathVariable Long id, @RequestBody AddNewParticipantDto participantDto) {
+        this.participantService.editParticipantById(id, ParticipantConverter.convertAddParticipantDtoToEntity(participantDto));
+    }
+
+    @GetMapping("/{id}")
+    public ParticipantDTO getParticipantById(@PathVariable Long id) {
+        return ParticipantConverter.convertParticipantToDto(this.participantService.getParticipantById(id));
+    }
 }

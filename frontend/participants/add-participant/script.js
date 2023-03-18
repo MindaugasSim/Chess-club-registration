@@ -1,6 +1,6 @@
 import { addNewParticipant } from "../../com/renderRequests.js";
 
-const handleFormSubmit = async () => {
+const saveFormData = async () => {
   const form = document.querySelector("form");
   const saveBtn = document.getElementById("save");
   saveBtn.addEventListener("click", async (e) => {
@@ -17,13 +17,13 @@ const handleFormSubmit = async () => {
   });
 };
 
-const handleCancelButton = () => {
+const cancelButton = () => {
   document.getElementById("cancel").addEventListener("click", () => {
-    window.location.replace("../index.html");
+    window.location.replace("../participants.html");
   });
 };
 
 (async () => {
-  handleCancelButton();
-  await handleFormSubmit();
+  cancelButton();
+  await saveFormData();
 })();

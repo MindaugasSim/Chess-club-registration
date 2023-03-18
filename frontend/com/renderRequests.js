@@ -25,3 +25,21 @@ export const deleteParticipantById = async (participantId) => {
 
   alert(`[Participant ${participantId}] deleted successfully`);
 };
+
+export const patchParticipantObject = async (participant, id) => {
+  await fetch(`${BASE_URL}/id`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(participant),
+  });
+
+  alert(`Participant updated successfully`);
+};
+
+export const getParticipantByID = async (participantId) => {
+  const response = await fetch(`${BASE_URL}/${participantId}`);
+  const participant = await response.json();
+  return participant;
+};

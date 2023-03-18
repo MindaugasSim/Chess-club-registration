@@ -3,6 +3,8 @@ import {
   deleteParticipantById,
 } from "../com/renderRequests.js";
 
+import { loadParticipantData } from "./edit-participant/script.js";
+
 const currentData = async (participants) => {
   const table = document.querySelector("table");
   const tbody = document.querySelector("tbody");
@@ -85,6 +87,8 @@ async function selectParticipant() {
         selectedRow = row;
         const deleteButton = document.getElementById("delete");
         deleteButton.addEventListener("click", deleteBtn(participantId));
+        const editButton = document.getElementById("edit");
+        editButton.addEventListener("click", editParticipantBtn(participantId));
       }
     });
   });
@@ -106,7 +110,16 @@ function addNewParticipantBtn() {
   const addParticipantBtn = document.getElementById("addParticipant");
   addParticipantBtn.addEventListener("click", (e) => {
     e.preventDefault();
-    location.replace("add-participant/index.html");
+    location.replace("add-participant/add-participant.html");
+  });
+}
+
+function editParticipantBtn(participantId) {
+  const editParticipantBtn = document.getElementById("edit");
+  editParticipantBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    loadParticipantData(participantId); /////////////////////////////////
+    location.replace("edit-participant/edit-participant.html");
   });
 }
 

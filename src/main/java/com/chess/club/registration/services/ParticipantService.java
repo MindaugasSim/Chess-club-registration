@@ -6,6 +6,7 @@ import com.chess.club.registration.repository.ParticipantRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ParticipantService {
@@ -95,9 +96,62 @@ public class ParticipantService {
     public List<Participant> loadAllParticipants() {
         return this.participantRepository.findAll();
     }
-    public void addNewParticipant(Participant participant) {this.participantRepository.saveAndFlush(participant);}
+
+    public void addNewParticipant(Participant participant) {
+        this.participantRepository.saveAndFlush(participant);
+    }
 
     public void deleteParticipantById(Long id) {
         this.participantRepository.deleteById(id);
     }
+
+    public void editParticipantById(Long id, Participant newParticipantData) {
+        Optional<Participant> participantOptional = participantRepository.findById(id);
+
+        if (participantOptional.isEmpty()) {
+            return;
+        }
+
+        Participant previousParticipantData = participantOptional.get();
+        AdditionalInfo previousInfoData = participantOptional.get().getAdditionalInfo();
+
+        if (newParticipantData.getName() != null && !previousParticipantData.getName().equals(newParticipantData.getName())) {
+            previousParticipantData.setName(newParticipantData.getName());
+        }
+
+        if (newParticipantData.getSurname() != null && !previousParticipantData.getSurname().equals(newParticipantData.getSurname())) {
+            previousParticipantData.setSurname(newParticipantData.getSurname());
+        }
+
+        if (newParticipantData.getPersonalCode() != null && !previousParticipantData.getPersonalCode().equals(newParticipantData.getPersonalCode())) {
+            previousParticipantData.setPersonalCode(newParticipantData.getPersonalCode());
+        }
+
+        if (newParticipantData.getAdditionalInfo().getEmail() != null && !previousParticipantData
+                .getAdditionalInfo()
+                .getEmail()
+                .equals(
+                        newParticipantData
+                                .getAdditionalInfo()
+                                .getEmail())) {
+            previousInfoData.setEmail(newParticipantData.getAdditionalInfo().getEmail());
+        }
+
+        if (newParticipantData.getAdditionalInfo().getDateStartedPlayingChess() != null && !previousParticipantData
+                .getAdditionalInfo()
+                .getDateStartedPlayingChess()
+                .equals(
+                        newParticipantData
+                                .getAdditionalInfo()
+                                .getDateStartedPlayingChess())) {
+            previousInfoData.setDateStartedPlayingChess(newParticipantData.getAdditionalInfo().getDateStartedPlayingChess());
+        }
+        participantRepository.saveAndFlush(previousParticipantData);
+    }
+
+    public Participant getParticipantById(Long id) {
+        Optional<Participant> participant = participantRepository.findById(id);
+        return participant.orElse(null);
+    }
 }
+
