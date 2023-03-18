@@ -5,11 +5,6 @@ import com.chess.club.registration.entities.Participant;
 import com.chess.club.registration.repository.ParticipantRepository;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.Year;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service

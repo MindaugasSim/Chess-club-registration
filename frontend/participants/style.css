@@ -4,7 +4,7 @@ body{
     flex-direction: column;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-image: url("/ui-images/chess.jpg");
-    background-position: center top -3rem;
+    background-position: 80% 20%;
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -14,7 +14,7 @@ body{
     width: 100vw;
     display: flex;
     align-items: center;
-    background-color: aquamarine;
+    background-color: #5585b5;
     gap: 2rem;
 }
 
@@ -45,12 +45,12 @@ table {
     text-align: center;
     font-size: 1.3rem;
     width: max-content;
-    border: 1px solid black;
+    border: 3px solid #53a8b6;
 }
 
 th {
     padding: .5rem;
-    background-color: aqua;
+    background-color: #66bfbf;
 }
 
 td {
@@ -58,18 +58,64 @@ td {
 }
 
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #eaf6f6;
 }
 tr:nth-child(odd) {
-    background-color: #d4bebe;
+    background-color: #fcfefe;
 }
 
 tr:hover {
-    background-color: rgb(214, 161, 46);
+    background-color: #AFEEEE;
 }
 
+#buttonBox {
+    align-self: flex-end;
+    width: 25vw;
+    height: 5vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
 
+button {
+    width: 7rem;
+    height: 2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid rgb(118, 122, 145);
+    font-size: 1.1rem;
+}
 
+button:hover, tbody tr:not(:first-child):hover {
+    transform: translate(3px, -3px);
+    box-shadow: -3px 3px #407a7a;
+}
 
+#edit, #replace {
+    background: #66bfbf;
+}
 
+#delete {
+    background: #DC143C;
+}
 
+#cancel {
+    background: #FFD700;
+}
+
+#addParticipant{
+    width: fit-content;
+    background: #409dfa;
+    position: relative;
+}
+
+.info {
+    position: absolute;
+    right: 5rem;
+    top: 10vh;
+    width: fit-content;
+    max-width: 15vw;
+    padding: .5em;
+    background-color: beige;
+    border: 3px solid #53a8b6;
+}

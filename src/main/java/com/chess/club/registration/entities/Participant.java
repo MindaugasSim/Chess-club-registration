@@ -1,11 +1,8 @@
 package com.chess.club.registration.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
 import java.time.Year;
 
 @Entity(name = "participants")

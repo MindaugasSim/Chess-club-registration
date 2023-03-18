@@ -2,7 +2,6 @@ package com.chess.club.registration.controller;
 
 import com.chess.club.registration.converter.ParticipantConverter;
 import com.chess.club.registration.dto.ParticipantDTO;
-import com.chess.club.registration.entities.Participant;
 import com.chess.club.registration.services.ParticipantService;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
