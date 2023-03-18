@@ -95,4 +95,9 @@ public class ParticipantService {
     public List<Participant> loadAllParticipants() {
         return this.participantRepository.findAll();
     }
+    public void addNewParticipant(Participant participant) {this.participantRepository.saveAndFlush(participant);}
+
+    public void deleteParticipantById(Long id) {
+        this.participantRepository.deleteById(id);
+    }
 }

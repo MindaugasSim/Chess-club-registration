@@ -1,6 +1,8 @@
 package com.chess.club.registration.converter;
 
+import com.chess.club.registration.dto.AddNewParticipantDto;
 import com.chess.club.registration.dto.ParticipantDTO;
+import com.chess.club.registration.entities.AdditionalInfo;
 import com.chess.club.registration.entities.Participant;
 
 import java.util.ArrayList;
@@ -48,5 +50,20 @@ public abstract class ParticipantConverter {
             participantDTOList.add(ParticipantConverter.convertParticipantToDto(participant));
         }
         return participantDTOList;
+    }
+
+    public static Participant convertAddParticipantDtoToEntity(AddNewParticipantDto newParticipantDto) {
+        Participant participant = null;
+        if (newParticipantDto != null) {
+            participant = new Participant();
+            AdditionalInfo additionalInfo = new AdditionalInfo();
+            participant.setName(newParticipantDto.getName());
+            participant.setSurname(newParticipantDto.getSurname());
+            participant.setPersonalCode(newParticipantDto.getPersonalCode());
+            additionalInfo.setEmail(newParticipantDto.getEmail());
+            additionalInfo.setDateStartedPlayingChess(newParticipantDto.getDateStartedPlayingChess());
+            participant.setAdditionalInfo(additionalInfo);
+        }
+        return participant;
     }
 }

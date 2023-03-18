@@ -1,4 +1,7 @@
-import { getCurrentParticipants } from "../com/renderRequests.js";
+import {
+  getCurrentParticipants,
+  deleteParticipantById,
+} from "../com/renderRequests.js";
 
 const currentData = async (participants) => {
   const table = document.querySelector("table");
@@ -57,8 +60,8 @@ const currentData = async (participants) => {
   const participants = await getCurrentParticipants();
   currentData(participants);
   selectParticipant();
-  cancelBtn();
   addNewParticipantBtn();
+  cancelBtn();
 })();
 
 async function selectParticipant() {
@@ -72,7 +75,6 @@ async function selectParticipant() {
       const participantId = this.getAttribute("id");
 
       participants.find((p) => p.participantId === participantId);
-      console.log(participantId);
 
       if (selectedRow) {
         changeBg(selectedRow, false);
@@ -81,6 +83,8 @@ async function selectParticipant() {
       if (participantId != null) {
         changeBg(row, true);
         selectedRow = row;
+        const deleteButton = document.getElementById("delete");
+        deleteButton.addEventListener("click", deleteBtn(participantId));
       }
     });
   });
@@ -98,17 +102,26 @@ function changeBg(row, isSelected) {
   }
 }
 
-function cancelBtn() {
-  const cancelBtn = document.getElementById("cancel");
-  cancelBtn.addEventListener("click", () => {
-    location.reload();
-  });
-}
-
 function addNewParticipantBtn() {
   const addParticipantBtn = document.getElementById("addParticipant");
   addParticipantBtn.addEventListener("click", (e) => {
     e.preventDefault();
     location.replace("add-participant/index.html");
   });
+}
+
+function cancelBtn() {
+  document.getElementById("cancel").addEventListener("click", () => {
+    location.reload();
+  });
+}
+
+function deleteBtn(participantId) {
+  return () => {
+    if (confirm("Are you sure you want to delete this participant?")) {
+      deleteParticipantById(participantId).then(() => {
+        window.location.reload();
+      });
+    }
+  };
 }
