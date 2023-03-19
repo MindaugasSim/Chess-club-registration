@@ -1,9 +1,21 @@
 const BASE_URL = "http://localhost:8080/api";
 
 export const getCurrentParticipants = async () => {
-  const response = await fetch(`${BASE_URL}/participants`);
-  const participants = await response.json();
-  return participants;
+  try {
+    const response = await fetch(`${BASE_URL}/participants`);
+    if (!response.ok) {
+      throw new Error("Network response was not ok");
+    }
+    const text = await response.text();
+    if (!text) {
+      return [];
+    }
+    const participants = JSON.parse(text);
+    return participants;
+  } catch (error) {
+    console.error("Error fetching participants:", error);
+    return [];
+  }
 };
 
 export const addNewParticipant = async (participant) => {
@@ -27,19 +39,35 @@ export const deleteParticipantById = async (participantId) => {
 };
 
 export const patchParticipantObject = async (participant, id) => {
-  await fetch(`${BASE_URL}/id`, {
+  return fetch(`${BASE_URL}/${id}`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify(participant),
-  });
-
-  alert(`Participant updated successfully`);
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      alert(`Participant updated successfully`);
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+    });
 };
 
 export const getParticipantByID = async (participantId) => {
-  const response = await fetch(`${BASE_URL}/${participantId}`);
-  const participant = await response.json();
-  return participant;
+  try {
+    const response = await fetch(`${BASE_URL}/${participantId}`);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const participant = await response.json();
+    return participant;
+  } catch (error) {
+    console.error("Error fetching participant:", error);
+    throw error;
+  }
 };

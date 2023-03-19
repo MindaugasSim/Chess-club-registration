@@ -19,7 +19,7 @@ public class AdditionalInfo {
     private String email;
     private String dateStartedPlayingChess;
 
-    @OneToOne(mappedBy = "additionalInfo", fetch = FetchType.EAGER)
+    @OneToOne(mappedBy = "additionalInfo", fetch = FetchType.LAZY)
     private Participant participant;
 
     public String getExperienceInChess(String dateStartedPlayingChess) {

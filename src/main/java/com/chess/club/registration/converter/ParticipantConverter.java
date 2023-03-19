@@ -66,4 +66,17 @@ public abstract class ParticipantConverter {
         }
         return participant;
     }
+
+    public static AddNewParticipantDto convertAddParticipantToDto(Participant participant) {
+        AddNewParticipantDto addNewParticipantDto = null;
+        if (participant != null) {
+            addNewParticipantDto = new AddNewParticipantDto();
+            addNewParticipantDto.setName(participant.getName());
+            addNewParticipantDto.setSurname(participant.getSurname());
+            addNewParticipantDto.setEmail(participant.getAdditionalInfo().getEmail());
+            addNewParticipantDto.setPersonalCode(participant.getPersonalCode());
+            addNewParticipantDto.setDateStartedPlayingChess(participant.getAdditionalInfo().getDateStartedPlayingChess());
+        };
+        return addNewParticipantDto;
+    }
 }

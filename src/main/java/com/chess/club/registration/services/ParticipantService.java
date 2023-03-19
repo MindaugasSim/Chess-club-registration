@@ -123,7 +123,12 @@ public class ParticipantService {
             previousParticipantData.setSurname(newParticipantData.getSurname());
         }
 
-        if (newParticipantData.getPersonalCode() != null && !previousParticipantData.getPersonalCode().equals(newParticipantData.getPersonalCode())) {
+        if (newParticipantData.getPersonalCode() != null
+                && !previousParticipantData
+                .getPersonalCode()
+                .equals(newParticipantData
+                        .getPersonalCode()
+                )) {
             previousParticipantData.setPersonalCode(newParticipantData.getPersonalCode());
         }
 
@@ -133,25 +138,32 @@ public class ParticipantService {
                 .equals(
                         newParticipantData
                                 .getAdditionalInfo()
-                                .getEmail())) {
+                                .getEmail()
+                )) {
             previousInfoData.setEmail(newParticipantData.getAdditionalInfo().getEmail());
         }
 
-        if (newParticipantData.getAdditionalInfo().getDateStartedPlayingChess() != null && !previousParticipantData
+        if (newParticipantData.getAdditionalInfo().getDateStartedPlayingChess() != null
+                && !previousParticipantData
                 .getAdditionalInfo()
                 .getDateStartedPlayingChess()
                 .equals(
                         newParticipantData
                                 .getAdditionalInfo()
-                                .getDateStartedPlayingChess())) {
-            previousInfoData.setDateStartedPlayingChess(newParticipantData.getAdditionalInfo().getDateStartedPlayingChess());
+                                .getDateStartedPlayingChess()
+                )) {
+            previousInfoData.setDateStartedPlayingChess(
+                    newParticipantData
+                            .getAdditionalInfo()
+                            .getDateStartedPlayingChess()
+            );
         }
         participantRepository.saveAndFlush(previousParticipantData);
     }
 
     public Participant getParticipantById(Long id) {
-        Optional<Participant> participant = participantRepository.findById(id);
-        return participant.orElse(null);
+        Optional<Participant> participantOptional = participantRepository.findById(id);
+        return participantOptional.orElse(null);
     }
 }
 

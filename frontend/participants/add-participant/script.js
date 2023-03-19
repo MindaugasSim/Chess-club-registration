@@ -2,8 +2,7 @@ import { addNewParticipant } from "../../com/renderRequests.js";
 
 const saveFormData = async () => {
   const form = document.querySelector("form");
-  const saveBtn = document.getElementById("save");
-  saveBtn.addEventListener("click", async (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
     const participant = {
       name: form.participantName.value,
@@ -13,7 +12,7 @@ const saveFormData = async () => {
       dateStartedPlayingChess: form.dateStartedPlaying.value,
     };
     await addNewParticipant(participant);
-    window.location.replace("../index.html");
+    window.location.replace("../participants.html");
   });
 };
 

@@ -92,6 +92,11 @@ button:hover, tbody tr:not(:first-child):hover {
     box-shadow: -3px 3px #407a7a;
 }
 
+button:focus {
+    transform: translate(-3px, 3px);
+    box-shadow: none;
+}
+
 #edit, #replace {
     background: #66bfbf;
 }

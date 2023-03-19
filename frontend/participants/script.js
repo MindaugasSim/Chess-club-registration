@@ -3,9 +3,7 @@ import {
   deleteParticipantById,
 } from "../com/renderRequests.js";
 
-import { loadParticipantData } from "./edit-participant/script.js";
-
-const currentData = async (participants) => {
+export const currentData = async (participants) => {
   const table = document.querySelector("table");
   const tbody = document.querySelector("tbody");
 
@@ -35,27 +33,39 @@ const currentData = async (participants) => {
 
   table.append(tRowForHeader, tbody);
 
-  participants.forEach((p) => {
-    const tr = document.createElement("tr");
-    const nameTd = document.createElement("td");
-    const surnameTd = document.createElement("td");
-    const emailTd = document.createElement("td");
-    const genderTd = document.createElement("td");
-    const ageTd = document.createElement("td");
-    const chessExpTd = document.createElement("td");
+  if (participants.length === 0) {
+    const emptyRow = document.createElement("tr");
+    const emptyMessage = document.createElement("td");
 
-    nameTd.innerText = p.name;
-    surnameTd.innerText = p.surname;
-    emailTd.innerText = p.email;
-    genderTd.innerText = p.gender;
-    ageTd.innerText = p.age;
-    chessExpTd.innerText = p.experienceInChess;
+    emptyMessage.setAttribute("colspan", "6");
+    emptyMessage.innerText = "No participants found.";
 
-    tr.append(nameTd, surnameTd, emailTd, genderTd, ageTd, chessExpTd);
-    tbody.appendChild(tr);
+    emptyRow.appendChild(emptyMessage);
 
-    tr.setAttribute("id", p.id);
-  });
+    tbody.appendChild(emptyRow);
+  } else {
+    participants.forEach((p) => {
+      const tr = document.createElement("tr");
+      const nameTd = document.createElement("td");
+      const surnameTd = document.createElement("td");
+      const emailTd = document.createElement("td");
+      const genderTd = document.createElement("td");
+      const ageTd = document.createElement("td");
+      const chessExpTd = document.createElement("td");
+
+      nameTd.innerText = p.name;
+      surnameTd.innerText = p.surname;
+      emailTd.innerText = p.email;
+      genderTd.innerText = p.gender;
+      ageTd.innerText = p.age;
+      chessExpTd.innerText = p.experienceInChess;
+
+      tr.append(nameTd, surnameTd, emailTd, genderTd, ageTd, chessExpTd);
+      tbody.appendChild(tr);
+
+      tr.setAttribute("id", p.id);
+    });
+  }
 };
 // MAIN
 (async () => {
@@ -107,19 +117,18 @@ function changeBg(row, isSelected) {
 }
 
 function addNewParticipantBtn() {
-  const addParticipantBtn = document.getElementById("addParticipant");
-  addParticipantBtn.addEventListener("click", (e) => {
+  document.getElementById("addParticipant").addEventListener("click", (e) => {
     e.preventDefault();
     location.replace("add-participant/add-participant.html");
   });
 }
 
 function editParticipantBtn(participantId) {
-  const editParticipantBtn = document.getElementById("edit");
-  editParticipantBtn.addEventListener("click", (e) => {
+  document.getElementById("edit").addEventListener("click", (e) => {
     e.preventDefault();
-    loadParticipantData(participantId); /////////////////////////////////
-    location.replace("edit-participant/edit-participant.html");
+    location.replace(
+      `edit-participant/edit-participant.html?id=${participantId}`
+    );
   });
 }
 
