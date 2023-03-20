@@ -11,6 +11,7 @@ const saveFormData = async () => {
       personalCode: form.personalCode.value,
       dateStartedPlayingChess: form.dateStartedPlaying.value,
     };
+    console.log(participant);
     await addNewParticipant(participant);
     window.location.replace("../participants.html");
   });

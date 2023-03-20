@@ -35,7 +35,7 @@ export const deleteParticipantById = async (participantId) => {
     method: "DELETE",
   });
 
-  alert(`[Participant ${participantId}] deleted successfully`);
+  alert(`Participant deleted successfully`);
 };
 
 export const patchParticipantObject = async (participant, id) => {
@@ -70,4 +70,24 @@ export const getParticipantByID = async (participantId) => {
     console.error("Error fetching participant:", error);
     throw error;
   }
+};
+
+export const putParticipantObject = async (participant, id) => {
+  await fetch(`${BASE_URL}/${id}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(participant),
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      alert(`Participant replaced successfully!`);
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("There was a problem with the fetch operation:", error);
+    });
 };

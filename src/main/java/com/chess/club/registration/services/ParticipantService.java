@@ -39,7 +39,7 @@ public class ParticipantService {
                 "Vasiliauskas",
                 "Žemaitė",
                 "Urbonas",
-                "Šimkūnienė"
+                "Viršilaitė"
         };
         String[] personalCode = {
                 "38201020001",
@@ -51,7 +51,7 @@ public class ParticipantService {
                 "39107140007",
                 "47708160008",
                 "37609180009",
-                "49607080947"
+                "49706050032"
         };
         String[] email = {
                 "Petrauskas@gmail.com",
@@ -63,7 +63,7 @@ public class ParticipantService {
                 "Vasiliauskas@gmail.com",
                 "Žemaitė@gmail.com",
                 "Urbonas@gmail.com",
-                "viktorija@gmail.com"
+                "Viktorija@gmail.com"
         };
         String[] dateStartedPlayingChess = {
                 "2000-10-06",
@@ -75,7 +75,7 @@ public class ParticipantService {
                 "2016-01-18",
                 "1997-05-20",
                 "1995-06-22",
-                "2019-05-19"
+                "2012-03-14"
         };
 
         for (int i = 0; i < 10; i++) {
@@ -164,6 +164,14 @@ public class ParticipantService {
     public Participant getParticipantById(Long id) {
         Optional<Participant> participantOptional = participantRepository.findById(id);
         return participantOptional.orElse(null);
+    }
+
+    public void replaceParticipantById(Long id, Participant participant) {
+        if (!participantRepository.existsById(id)) {
+            return;
+        }
+        participant.setId(id);
+        this.participantRepository.saveAndFlush(participant);
     }
 }
 

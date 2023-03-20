@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDate;
-import java.time.Period;
 import java.time.Year;
 
 @Entity(name = "participants")
@@ -29,9 +28,9 @@ public class Participant {
     public String getParticipantGender(String personalCode) {
         String participantGender;
         return switch (personalCode.charAt(0)) {
-            case '3', '5' -> participantGender = "Vyras";
-            case '4', '6' -> participantGender = "Moteris";
-            default -> participantGender = "Nežinoma";
+            case '3', '5' -> participantGender = "Man";
+            case '4', '6' -> participantGender = "Woman";
+            default -> participantGender = "Unknown";
         };
     }
 

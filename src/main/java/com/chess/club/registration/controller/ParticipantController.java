@@ -3,7 +3,6 @@ package com.chess.club.registration.controller;
 import com.chess.club.registration.converter.ParticipantConverter;
 import com.chess.club.registration.dto.AddNewParticipantDto;
 import com.chess.club.registration.dto.ParticipantDTO;
-import com.chess.club.registration.entities.Participant;
 import com.chess.club.registration.services.ParticipantService;
 import org.springframework.web.bind.annotation.*;
 
@@ -42,5 +41,10 @@ public class ParticipantController {
     @GetMapping("/{id}")
     public AddNewParticipantDto getParticipantById(@PathVariable Long id) {
         return ParticipantConverter.convertAddParticipantToDto(this.participantService.getParticipantById(id));
+    }
+
+    @PutMapping("/{id}")
+    public void replaceParticipantById(@PathVariable Long id, @RequestBody AddNewParticipantDto replacedParticipantDto) {
+        this.participantService.replaceParticipantById(id, ParticipantConverter.convertAddParticipantDtoToEntity(replacedParticipantDto));
     }
 }

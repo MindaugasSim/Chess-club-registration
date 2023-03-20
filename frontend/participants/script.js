@@ -99,6 +99,11 @@ async function selectParticipant() {
         deleteButton.addEventListener("click", deleteBtn(participantId));
         const editButton = document.getElementById("edit");
         editButton.addEventListener("click", editParticipantBtn(participantId));
+        const replaceButton = document.getElementById("replace");
+        replaceButton.addEventListener(
+          "click",
+          replaceParticipantBtn(participantId)
+        );
       }
     });
   });
@@ -128,6 +133,15 @@ function editParticipantBtn(participantId) {
     e.preventDefault();
     location.replace(
       `edit-participant/edit-participant.html?id=${participantId}`
+    );
+  });
+}
+
+function replaceParticipantBtn(participantId) {
+  document.getElementById("replace").addEventListener("click", (e) => {
+    e.preventDefault();
+    location.replace(
+      `replace-participant/replace-participant.html?id=${participantId}`
     );
   });
 }

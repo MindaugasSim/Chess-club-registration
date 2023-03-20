@@ -1,5 +1,5 @@
 import {
-  patchParticipantObject,
+  putParticipantObject,
   getParticipantByID,
 } from "../../com/renderRequests.js";
 
@@ -26,26 +26,26 @@ const saveNewParticipantData = async () => {
       name:
         previousParticipantData.name !== form.participantName.value
           ? form.participantName.value
-          : undefined,
+          : previousParticipantData.name,
       surname:
         previousParticipantData.surname !== form.surname.value
           ? form.surname.value
-          : undefined,
+          : previousParticipantData.surname,
       email:
         previousParticipantData.email !== form.email.value
           ? form.email.value
-          : undefined,
+          : previousParticipantData.email,
       personalCode:
         previousParticipantData.personalCode !== form.personalCode.value
           ? form.personalCode.value
-          : undefined,
+          : previousParticipantData.personalCode,
       dateStartedPlayingChess:
         previousParticipantData.dateStartedPlaying !==
         form.dateStartedPlaying.value
           ? form.dateStartedPlaying.value
-          : undefined,
+          : previousParticipantData.dateStartedPlaying,
     };
-    await patchParticipantObject(participant, participantId);
+    await putParticipantObject(participant, participantId);
     window.location.replace("../participants.html");
   });
 };
