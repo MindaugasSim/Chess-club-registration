@@ -1,0 +1,473 @@
+{
+	"info": {
+		"_postman_id": "e8ea9116-c62e-40b3-929d-b6b9a9d732a7",
+		"name": "chess-club",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6102829"
+	},
+	"item": [
+		{
+			"name": "Get all club participants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BaseURL}}/participants",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"participants"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get all participants example",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/participants",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								"participants"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Mar 2023 20:07:31 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Tomas\",\n        \"surname\": \"Petrauskas\",\n        \"email\": \"Petrauskas@gmail.com\",\n        \"gender\": \"Man\",\n        \"age\": 41,\n        \"experienceInChess\": \"22m. 5mėn.\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Akvilė\",\n        \"surname\": \"Jankauskaitė\",\n        \"email\": \"Jankauskaitė@gmail.com\",\n        \"gender\": \"Woman\",\n        \"age\": 33,\n        \"experienceInChess\": \"8m.\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Simona\",\n        \"surname\": \"Balčiūnaitė\",\n        \"email\": \"Balčiūnaitė@gmail.com\",\n        \"gender\": \"Woman\",\n        \"age\": 53,\n        \"experienceInChess\": \"26m. 5mėn.\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"Danielius\",\n        \"surname\": \"Paulauskas\",\n        \"email\": \"Paulauskas@gmail.com\",\n        \"gender\": \"Man\",\n        \"age\": 57,\n        \"experienceInChess\": \"19m. 11mėn.\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"Andrius\",\n        \"surname\": \"Vasiliauskas\",\n        \"email\": \"Vasiliauskas@gmail.com\",\n        \"gender\": \"Man\",\n        \"age\": 31,\n        \"experienceInChess\": \"7m. 2mėn.\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"Erika\",\n        \"surname\": \"Žemaitė\",\n        \"email\": \"Žemaitė@gmail.com\",\n        \"gender\": \"Woman\",\n        \"age\": 45,\n        \"experienceInChess\": \"25m. 10mėn.\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"Mindaugas\",\n        \"surname\": \"Urbonas\",\n        \"email\": \"Urbonas@gmail.com\",\n        \"gender\": \"Man\",\n        \"age\": 46,\n        \"experienceInChess\": \"27m. 8mėn.\"\n    },\n    {\n        \"id\": 10,\n        \"name\": \"Viktorija\",\n        \"surname\": \"Viršilaitė\",\n        \"email\": \"Viktorija@gmail.com\",\n        \"gender\": \"Woman\",\n        \"age\": 25,\n        \"experienceInChess\": \"11m.\"\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Add new participant to the club",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Mindaugas\",\r\n    \"surname\": \"Simkunas\",\r\n    \"email\": \"mindaugas@gmail.com\",\r\n    \"personalCode\": \"39211111111\",\r\n    \"dateStartedPlayingChess\": \"2000-01-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}",
+					"host": [
+						"{{BaseURL}}"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add new participant to the club",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Mindaugas\",\r\n    \"surname\": \"Simkunas\",\r\n    \"email\": \"mindaugas@gmail.com\",\r\n    \"personalCode\": \"39211111111\",\r\n    \"dateStartedPlayingChess\": \"2000-01-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}",
+							"host": [
+								"{{BaseURL}}"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Mar 2023 20:14:14 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Replace existing participant with new object",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"1\",\r\n    \"name\": \"Mindaugas\",\r\n    \"surname\": \"Simkunas\",\r\n    \"email\": \"mindaugas@gmail.com\",\r\n    \"personalCode\": \"39211111111\",\r\n    \"dateStartedPlayingChess\": \"2000-01-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/:id",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Replace existing participant with new object",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\",\r\n    \"name\": \"Mindaugas\",\r\n    \"surname\": \"Simkunas\",\r\n    \"email\": \"mindaugas@gmail.com\",\r\n    \"personalCode\": \"39211111111\",\r\n    \"dateStartedPlayingChess\": \"2000-01-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/:id",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Mar 2023 20:19:02 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Edit existing participant data",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"1\",\r\n    \"name\": \"Mindaugas\",\r\n    \"surname\": \"Simkunas\",\r\n    \"email\": \"mindaugas@gmail.com\",\r\n    \"personalCode\": \"39211111111\",\r\n    \"dateStartedPlayingChess\": \"2000-01-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/:id",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Edit existing participant data",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"1\",\r\n    \"name\": \"Mindaugas\",\r\n    \"surname\": \"Simkunas\",\r\n    \"email\": \"mindaugas@gmail.com\",\r\n    \"personalCode\": \"39211111111\",\r\n    \"dateStartedPlayingChess\": \"2000-01-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BaseURL}}/:id",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Mar 2023 20:21:43 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Delete participant by ID",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": \"1\",\r\n    \"name\": \"Mindaugas\",\r\n    \"surname\": \"Simkunas\",\r\n    \"email\": \"mindaugas@gmail.com\",\r\n    \"personalCode\": \"39211111111\",\r\n    \"dateStartedPlayingChess\": \"2000-01-01\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/:id",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Delete participant by ID",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{BaseURL}}/:id",
+							"host": [
+								"{{BaseURL}}"
+							],
+							"path": [
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "plain",
+					"header": [
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Method"
+						},
+						{
+							"key": "Vary",
+							"value": "Access-Control-Request-Headers"
+						},
+						{
+							"key": "Content-Length",
+							"value": "0"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 20 Mar 2023 20:22:17 GMT"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=60"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "BaseURL",
+			"value": "http://localhost:8080/api"
+		},
+		{
+			"key": "ParticipantID",
+			"value": "1"
+		}
+	]
+}

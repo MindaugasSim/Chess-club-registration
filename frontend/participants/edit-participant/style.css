@@ -1,0 +1,95 @@
+body{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-image: url("/ui-images/chess.jpg");
+    background-position: 80% 20%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.menu {
+    height: 3rem;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    background-color: #5585b5;
+    gap: 2rem;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+a:first-child {
+    padding-left: 15rem;
+}
+
+form {
+    align-self: center;
+    height: fit-content;
+    width: fit-content;
+    margin-top: 2rem;
+    padding: 5rem;
+    border: 2px solid rgb(116, 116, 224);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(64, 157, 250, .3);
+    gap: 1rem;
+}
+
+label {
+    font-size: 1.3rem;
+}
+
+input {
+    height: 2rem;
+    width: 20vw;
+    border-radius: 5px;
+    border: 1px solid rgb(116, 116, 224);
+    padding-left: 1rem;
+}
+
+#buttonBox {
+    align-self: center;
+    width: 25vw;
+    height: 5vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    width: 7rem;
+    height: 2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid rgb(118, 122, 145);
+    font-size: 1.1rem;
+}
+
+button:hover {
+    transform: translate(3px, -3px);
+    box-shadow: -3px 3px #407a7a;
+}
+
+#edit, #replace {
+    background: #66bfbf;
+}
+
+#delete {
+    background: #DC143C;
+}
+
+#cancel {
+    background: #FFD700;
+}
+
+#addParticipant{
+    width: 12vw;
+    background: #409dfa;
+    position: relative;
+}
