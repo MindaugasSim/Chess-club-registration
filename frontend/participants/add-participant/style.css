@@ -1,0 +1,99 @@
+body{
+    box-sizing: border-box;
+    color: #e9ddcf;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-image: url("/ui-images/chess-bg.avif");
+    background-size: cover;
+    background-position: center top -20vh;
+}
+
+.menu {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    background-color: #363434;
+    gap: 2rem;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: #e3d9b2;
+}
+
+a:first-child {
+    padding: 0 2rem 0 10rem;
+    border-right: 2px solid black;
+}
+
+form {
+    align-self: center;
+    height: fit-content;
+    width: fit-content;
+    margin-top: 3rem;
+    padding: 3rem;
+    border: 2px solid whitesmoke;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(155, 156, 156, 0.3);
+    gap: 1rem;
+}
+
+label {
+    font-size: 1.3rem;
+}
+
+input {
+    height: 2rem;
+    width: 15vw;
+    border-radius: 5px;
+    border: 2px solid rgb(117, 101, 101);
+    padding-left: 1rem;
+}
+
+#dateStartedPlaying {
+    width: 6vw;
+}
+
+#buttonBox {
+    align-self: center;
+    width: 15vw;
+    height: 5vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    width: 7rem;
+    height: 2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #e3d9b2;
+    font-size: 1.1rem;
+}
+
+button:hover {
+    transform: translate(3px, -3px);
+    box-shadow: -3px 3px #407a7a;
+    transition: 0.2s ease-in-out;
+}
+
+#save {
+    background: #5fdb5f;
+}
+
+#cancel {
+    background: #FFD700;
+}
+
+::-webkit-calendar-picker-indicator { 
+    width: 25px;
+    height: 25px;
+    background-image: url("../../ui-images/calendar-logo.png");
+    background-size: cover; 
+}

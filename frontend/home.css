@@ -1,0 +1,37 @@
+body{
+    box-sizing: border-box;
+    color: #e3d9b2;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    background-image: url("/ui-images/chess-bg.avif");
+    background-size: cover;
+    background-position: center top -20vh;
+    
+
+}
+
+.menu {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    background-color: #5a5757;
+    gap: 2rem;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: #e3d9b2;
+}
+a:first-child {
+    padding: 0 2rem 0 10rem;
+    border-right: 2px solid black;
+}
+
+h1 {
+    align-self: center;
+    margin-top: 30vh;
+    font-size: 3rem;
+}

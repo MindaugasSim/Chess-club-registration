@@ -1,0 +1,133 @@
+body{
+    box-sizing: border-box;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    font-family: Arial, sans-serif;
+    color: #412a0d;
+    background-image: url("../ui-images/chess-bg.avif");
+    background-size: cover;
+    background-position: center top -20vh;
+}
+
+.menu {
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    background-color: #363434;
+    gap: 2rem;
+}
+
+a {
+    text-decoration: none;
+    font-size: 1.3rem;
+    color: #e3d9b2;
+}
+
+a:first-child {
+    padding: 0 2rem 0 10rem;
+    border-right: 2px solid black;
+}
+
+.wrap {
+    align-self: center;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 45rem 0 0;
+}
+
+table {
+    border-collapse: collapse;
+    font-size: 1.1rem;
+    width: max-content;
+    border: 3px solid #e3d9b2;
+}
+
+th {
+    padding: .5rem;
+    background-color: #e3d9b2;
+}
+
+h2 {
+    color: #e3d9b2;
+}
+
+td {
+    padding: .5rem;
+}
+
+tr:nth-child(even) {
+    background-color: rgb(234, 246, 246, .7);
+}
+tr:nth-child(odd) {
+    background-color: rgb(252, 254, 254, .9);
+}
+
+tr:hover {
+    background-color: #AFEEEE;
+}
+
+#buttonBox {
+    align-self: flex-end;
+    width: 19vw;
+    height: 5vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+button {
+    width: 7rem;
+    height: 2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #e3d9b2;
+    font-size: 1.1rem;
+}
+
+button:hover, tbody tr:not(:first-child):hover {
+    transform: translate(3px, -3px);
+    box-shadow: -3px 3px #407a7a;
+    transition: 0.2s ease-in-out;
+}
+
+button:focus {
+    transform: translate(-3px, 3px);
+    box-shadow: none;
+}
+
+#edit, #replace {
+    background: #66bfbf;
+}
+
+#delete {
+    background: #DC143C;
+}
+
+#cancel {
+    background: #FFD700;
+}
+
+.titleBox {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 4rem;
+}
+
+#addParticipant{
+    width: fit-content;
+    background: #409dfa;
+}
+
+.info {
+    position: absolute;
+    right: 30rem;
+    top: 8.5rem;
+    width: fit-content;
+    max-width: 15vw;
+    padding: .5em;
+    background-color: rgba(252, 252, 252, 0.8);
+    border: 3px solid #e3d9b2;
+}
